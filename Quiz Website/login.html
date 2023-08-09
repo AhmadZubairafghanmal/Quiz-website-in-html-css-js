@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="asset/images/logo.jpg" />
+    <link rel="stylesheet" href="asset/css/main.css" />
+    <title>login page</title>
+    <style>
+      .container {
+        width: 100vw;
+        height: 100vh;
+        display: grid;
+        justify-content: center;
+        align-content: center;
+        grid-template-columns: 50% 50%;
+      }
+
+      .login_form_box {
+        display: grid;
+        grid-template-columns: 50%;
+        justify-content: center;
+        background-color: var(--white-color);
+        padding: 4rem 0 4rem 0;
+        color: var(--black-color);
+      }
+
+      .login_info_box {
+        display: grid;
+        grid-template-columns: 100%;
+        justify-content: center;
+        text-align: center;
+        background-color: var(--white-color);
+        color: var(--black-color);
+        padding: 4rem 11rem 4rem 0;
+      }
+
+      .login_info_box h1 {
+        font-size: 2rem;
+        font-weight: 600;
+      }
+
+      .login_info_box h2 {
+        font-size: 1.2rem;
+      }
+
+      .login_info_box p {
+        text-align: justify;
+      }
+
+      .login_form_box h1 {
+        text-align: center;
+        text-transform: uppercase;
+        margin-bottom: 2rem;
+      }
+
+      .login_form_box input {
+        width: 100%;
+        padding: 0.5rem;
+        margin-top: 2rem;
+        border: none;
+        outline: none;
+        border-radius: 0.2rem;
+        background-color: #242222;
+        color: var(--white-color);
+      }
+
+      .button_area {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1rem;
+      }
+
+      .login_button,
+      .reset_button {
+        width: 45%;
+        padding: 0.5rem;
+        margin: 0.3rem 0 1.2rem 0;
+        border: none;
+        outline: none;
+        background-color: var(--blue);
+        border-radius: 0.2rem;
+        color: var(--white-color);
+        font-size: 1rem;
+        cursor: pointer;
+      }
+
+      .button_style {
+        color: var(--blue);
+        background-color: var(--white-color);
+        border: 1px solid var(--blue);
+        transition: all 1s;
+        transform: scale(1.05);
+      }
+
+      /* responisve code */
+      @media (max-width: 768px) {
+        .container {
+          display: flex;
+          flex-direction: column-reverse;
+          width: 100%;
+          padding: 2rem;
+        }
+
+        .login_info_box {
+          text-align: center;
+          padding: 8rem 4rem 0 4rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="container">
+        <div class="login_form_box">
+          <h1>login form</h1>
+          <form id="form" onreset="return inputFieldreset()">
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Email Address"
+              class="login_item email_input email"
+            />
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Password"
+              class="login_item password_input password"
+            />
+            <p class="error_message"></p>
+            <div class="button_area">
+              <button type="submit" class="login_button log_btn">Login</button>
+              <button type="reset" class="reset_button log_btn">Reset</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="login_info_box">
+          <h1>Welcome to our online web quiz website</h1>
+          <h2>We are happy to see your activity every time here!</h2>
+          <p class="info_description">
+            This online web application is created to solve your problems in
+            fron-end web development field, this is an easy web quiz application
+            that offer services to you free without any fees, so welcome every
+            time to get good knowledge, get quizes and check examples.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- <script src="asset/java script/login.js"></script> -->
+    <script>
+      "use strict";
+
+      let loginInputFields = document.querySelectorAll(".login_item");
+      let loginBtns = document.querySelectorAll(".log_btn");
+      console.log(loginInputFields);
+
+      // adding properities t input fields
+      loginInputFields.forEach(function (loginItem) {
+        loginItem.setAttribute("autocomplete", "off");
+        loginItem.setAttribute("required", "");
+      });
+
+      // checking input fields if clear or not
+      function inputFieldreset() {
+        if (confirm("Do you want to clear input fields!")) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+
+      // style to buttons using mouseout and mouseover events
+      loginBtns.forEach(function (btn) {
+        btn.addEventListener("mouseover", function () {
+          btn.classList.add("button_style");
+        });
+
+        btn.addEventListener("mouseout", function () {
+          btn.classList.remove("button_style");
+        });
+      });
+
+      let email = document.querySelector("#email");
+      let password = document.querySelector("#password");
+      const form = document.querySelector("form");
+
+      // error function
+      function showError(message) {
+        document.querySelector(".error_message").style.display = "block";
+        document.querySelector(".error_message").textContent = `${message}`;
+      }
+
+      // submitting of form
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        let userData = localStorage.getItem("users_accounts");
+
+        if (userData) {
+          userData = JSON.parse(userData);
+
+          // checking password and email
+          for (let i = 0; i < userData.length; i++) {
+            if (
+              userData[i].email === email.value &&
+              userData[i].password === password.value
+            ) {
+              window.location.href = "./quiz.html";
+              localStorage.setItem("logged_in", JSON.stringify(userData[i]));
+              showError(" ");
+              break;
+            } else {
+              if (
+                userData[i].password !== password.value &&
+                userData[i].email !== email.value
+              ) {
+                showError("email & password incorrect!");
+              } else if (userData[i].password !== password.value) {
+                showError("password is incorrect!");
+              } else if (userData[i].email !== email.value) {
+                showError("email is incorrect!");
+              }
+            }
+          }
+        } else {
+          email.value = "";
+          password.value = "";
+          showError("Please go to register page & register yourself!");
+        }
+      });
+    </script>
+  </body>
+</html>

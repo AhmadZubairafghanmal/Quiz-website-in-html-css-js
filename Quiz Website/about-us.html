@@ -1,0 +1,306 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="asset/images/logo.jpg" />
+    <link rel="stylesheet" href="asset/css/main.css" />
+    <link rel="stylesheet" href="asset/icon files/css/ionicons.min.css" />
+    <link rel="stylesheet" href="asset/responsiveness/main-respo.css" />
+    <title>about us page</title>
+
+    <style>
+      /* main page*/
+      .container {
+        /* width: 100%; */
+        display: grid;
+        height: 90vh;
+        grid-template-columns: 35% 35%;
+        align-content: center;
+        justify-content: center;
+        grid-column-gap: 3rem;
+      }
+
+      .info_container {
+        display: grid;
+        grid-template-columns: 100%;
+        align-content: center;
+        text-align: center;
+        grid-row-gap: 3rem;
+      }
+
+      .info_container a {
+        text-decoration: none;
+        color: var(--white-color);
+        background-color: var(--blue);
+        cursor: pointer;
+        padding: 0.5rem 1rem;
+        margin: 0 auto;
+        border-radius: 0.2rem;
+        font-size: 1.1em;
+      }
+
+      .button_style {
+        color: #2c88eb;
+        background-color: #ffffff;
+        border: 1px solid #2c88eb;
+        transition: all 1s;
+        transform: scale(1.05);
+      }
+
+      .info_container p {
+        line-height: 1.5rem;
+      }
+
+      .image_container img {
+        width: 33rem;
+        border-top-right-radius: 2rem;
+        border-bottom-left-radius: 2rem;
+      }
+
+      /* respoisive code */
+      @media (max-width: 992px) {
+        .container {
+          justify-content: center;
+          align-content: center;
+          margin-right: 8rem;
+          grid-column-gap: 4rem;
+        }
+        .info_container {
+          grid-row-gap: 1.5rem;
+        }
+
+        .image_container img {
+          width: 28rem;
+          margin-top: 2.5rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        body {
+          font-size: 0.8rem;
+        }
+
+        .image_container img {
+          width: 22rem;
+          margin-top: 5.5rem;
+        }
+      }
+      @media (max-width: 600px) {
+        body {
+          font-size: 0.8rem;
+        }
+
+        .container {
+          width: 100%;
+          grid-template-columns: 50%;
+          margin-top: 2rem;
+          margin-left: -1.8rem;
+        }
+
+        .info_container {
+          grid-row-gap: 1rem;
+          width: 100%;
+          margin-left: 2rem;
+        }
+
+        .image_container img {
+          width: 22rem;
+          margin-top: -1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <img src="asset/images/logo.jpg" alt="error on loading logo" />
+      <ul>
+        <li class="menu_btn">
+          <i class="ion-android-menu" id="menu"></i>
+        </li>
+        <li class="nav_link"><a href="index.html" class="link">Home</a></li>
+        <li class="nav_link">
+          <a href="quiz.html" class="link">Quiz</a>
+        </li>
+        <li class="nav_link">
+          <a href="contact-us.html" class="link">Contact Us</a>
+        </li>
+        <li class="nav_link">
+          <a href="about-us.html" class="link">About Us</a>
+        </li>
+      </ul>
+    </nav>
+
+    <section>
+      <div class="container">
+        <div class="info_container">
+          <h1>About Us</h1>
+          <p>
+            Hello, guys we have created this website from solving problems of
+            students in front end web development, we have added different
+            features to this website and has different pages that you can study
+            online in HTML, CSS And Java Script after that we have a small quiz
+            which has 10 questions with multiple choices, you can select on of
+            the answer and submit your answer.
+          </p>
+          <a href="#" target="_blank" id="send_email">Send The E-mail</a>
+        </div>
+
+        <div class="image_container">
+          <picture
+            ><img src="asset/images/about us image.jpg" alt=""
+          /></picture>
+        </div>
+      </div>
+    </section>
+
+    <!-- Page Footer -->
+    <footer>
+      <div class="footer_container">
+        <div class="tutorials">
+          <h1>online tutorials</h1>
+          <div class="tutorials_links">
+            <div class="html_links">
+              <h3>HTML5</h3>
+              <ul>
+                <li>
+                  <a
+                    href="https://www.w3schools.com/html/default.asp "
+                    target="_blank"
+                    >HTML Tutorial</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.w3schools.com/html/html_examples.asp"
+                    target="_blank"
+                    >HTML Examples</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.w3schools.com/html/html_quiz.asp"
+                    target="_blank"
+                    >HTML Quizes</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="css_links">
+              <h3>CSS3</h3>
+              <ul>
+                <li>
+                  <a
+                    href="https://www.w3schools.com/css/default.asp"
+                    target="_blank"
+                    >CSS Tutorial</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.w3schools.com/css/css_examples.asp"
+                    target="_blank"
+                    >CSS Examples</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.w3schools.com/css/css_quiz.asp"
+                    target="_blank"
+                    >CSS Quizes</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="js_links">
+              <h3>JS</h3>
+              <ul>
+                <li>
+                  <a
+                    href="https://www.w3schools.com/js/default.asp"
+                    target="_blank"
+                    >JS Tutorial</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.w3schools.com/js/js_examples.asp"
+                    target="_blank"
+                    >JS Examples</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.w3schools.com/js/js_quiz.asp"
+                    target="_blank"
+                    >JS Quizes</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="other_pages_links">
+          <h1>other pages links</h1>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html">Testominal</a></li>
+            <li><a href="contact-us.html">Contact Us</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+          </ul>
+        </div>
+
+        <div class="contacts__links">
+          <h1>follow us</h1>
+          <div class="follow_us">
+            <ul>
+              <li>
+                <a href="#"><i class="ion-social-github" id="github"></i></a>
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="ion-social-linkedin" id="linkedin"></i
+                ></a>
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="ion-social-instagram-outline" id="instagram"></i
+                ></a>
+              </li>
+              <li>
+                <a href="#"><i class="ion-social-twitter" id="twitter"></i></a>
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="ion-social-facebook" id="facebook"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="copyright_others">
+        <p class="copyright_para">
+          Copyright &copy; 2023 All rights reserved | This website is designed
+          by computer science students group, you can use this project for
+          learning and your portifolo.
+        </p>
+      </div>
+    </footer>
+
+    <script src="asset/java script/main.js"></script>
+    <script>
+      "use strict";
+     
+      // mouseover and mouseout function on buttons
+      emailSendBtn.addEventListener("mouseover", function () {
+        emailSendBtn.classList.add("button_style");
+      });
+
+      emailSendBtn.addEventListener("mouseout", function () {
+        emailSendBtn.classList.remove("button_style");
+      });
+    </script>
+  </body>
+</html>

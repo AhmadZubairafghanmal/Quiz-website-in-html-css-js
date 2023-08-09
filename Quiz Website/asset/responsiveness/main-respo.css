@@ -1,0 +1,160 @@
+@media (max-width: 992px) {
+  /* footer queries */
+  .footer_container {
+    grid-template-columns: 45% 30% 15%;
+  }
+
+  .copyright_para {
+    font-size: 0.9rem;
+  }
+}
+
+/* ipad size to 768px */
+@media (max-width: 768px) {
+  /*footer  */
+  .footer_container {
+    grid-template-columns: 50% 30% 15%;
+  }
+
+  .tutorials_links {
+    grid-template-columns: 28% 28% 28%;
+    font-size: 0.9rem;
+  }
+
+  .footer_container h1 {
+    font-size: 1rem;
+  }
+
+  .copyright_para {
+    font-size: 0.8rem;
+  }
+}
+
+/* media queries for mobile from size 0 - 480px*/
+@media (max-width: 600px) {
+  .navbar ul {
+    flex-wrap: wrap;
+    height: 90vh;
+  }
+
+  #menu {
+    display: inline-block;
+  }
+
+  .nav_link {
+    display: none;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    top: 20rem;
+    padding: 1rem 0;
+    background-color: var(--black-color);
+  }
+
+  .nav_link .link {
+    color: var(--white-color);
+  }
+
+  .active {
+    display: block;
+  }
+
+  /* hero section */
+  .hero_section {
+    grid-template-columns: auto;
+  }
+
+  .hero_section_info {
+    display: grid;
+    justify-content: center;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 8rem;
+    padding: 0 1rem;
+  }
+
+  .hero_section_info h1 {
+    margin-bottom: 1rem;
+  }
+
+  .hero_section_image {
+    display: grid;
+    justify-content: center;
+    grid-column: 1 / 2;
+    position: relative;
+    bottom: 5rem;
+  }
+
+  .hero_section_image img {
+    width: 25rem;
+  }
+
+  /* testominal */
+  .container {
+    grid-template-columns: 40%;
+    grid-row-gap: 3rem;
+    font-size: 0.9rem;
+    position: relative;
+    width: 100%;
+    font-size: 0.8rem;
+    grid-row-gap: 2rem;
+  }
+
+  .testimonial_section h2 {
+    opacity: 0;
+  }
+
+  .container .detalis {
+    position: relative;
+    top: -5rem;
+  }
+
+  .container .user {
+    position: relative;
+    bottom: 4rem;
+  }
+
+  .testo_common_info .qutation_area {
+    width: 3rem;
+    height: 3rem;
+    bottom: 8rem;
+    right: 3rem;
+  }
+
+  .testo_common_info #qutation {
+    font-size: 1.5rem;
+  }
+
+  /* footer */
+  .footer_container {
+    grid-template-columns: auto;
+    justify-content: center;
+    grid-row-gap: 3rem;
+  }
+
+  .tutorials_links {
+    grid-template-columns: 29% 29% 29%;
+    font-size: 0.9rem;
+  }
+
+  .contacts__links {
+    display: grid;
+    justify-content: center;
+  }
+
+  .follow_us ul {
+    display: flex;
+    justify-content: space-around;
+    width: 50vh;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .footer_container h1 {
+    font-size: 1rem;
+  }
+
+  .copyright_para {
+    font-size: 0.8rem;
+  }
+}

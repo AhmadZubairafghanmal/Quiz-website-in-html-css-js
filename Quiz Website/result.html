@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="asset/images/logo.jpg" />
+    <link rel="stylesheet" href="asset/icon files/css/ionicons.min.css" />
+    <link rel="stylesheet" href="asset/css/main.css" />
+    <title>result page</title>
+    <style>
+      .navbar ul {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        list-style-type: none;
+        width: 10vw;
+      }
+
+      .result {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: var(--black-color);
+        line-height: 1rem;
+        margin-top: 2rem;
+      }
+
+      .quiz_status {
+        font-size: 1.8rem;
+        margin-bottom: 2%;
+      }
+
+      .result i {
+        font-size: 3rem;
+      }
+
+      .result h2 {
+        font-size: 1.4rem;
+      }
+
+      #show {
+        text-align: center;
+        margin: 1rem auto;
+      }
+
+      table {
+        border-collapse: collapse;
+      }
+
+      tr:nth-child(odd) {
+        color: var(--black-color);
+      }
+
+      td,
+      th {
+        border: 0.1em solid var(--black-color);
+        text-align: center;
+        padding: 1rem;
+        vertical-align: middle;
+        background-color: var(--white-color);
+        color: var(--black-color);
+      }
+
+      .table_head {
+        font-weight: 500;
+        justify-content: center;
+        justify-content: space-around;
+        border-bottom: 0.1em solid var(--black-color);
+        font-size: 1.2rem;
+      }
+
+      .true_question {
+        padding: 0 0.4rem;
+      }
+
+      .showtable {
+        width: 90vw;
+        margin: 0 auto;
+        margin-top: 2rem;
+        display: none;
+        color: var(--white-color);
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      .showtable.display {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <picture>
+        <img src="asset/images/logo.jpg" alt="error on loading logo" />
+      </picture>
+
+      <button
+        type="button"
+        onclick="logout()"
+        id="logout_btn"
+        class="logout_btn"
+      >
+        Logout
+      </button>
+    </nav>
+
+    <section>
+      <div id="firstResultContainer">
+        <div id="result" class="result">
+          <h1 id="quiz_status" class="quiz_status"></h1>
+          <i class="ion-android-checkmark-circle" id="check_mark"></i>
+          <h2>Your Quiz Result: <span id="quiz_score"></span></h2>
+          <p id="comment"></p>
+        </div>
+
+        <div>
+          <table id="quiz_table" class="showtable">
+            <tr class="table_head">
+              <th class="question">Question</th>
+              <th class="answer">Your Answer</th>
+              <th class="status">Answer Status</th>
+            </tr>
+          </table>
+        </div>
+        <a href="#quiz_table" onclick="tableResult()">
+          <p id="show">Show Table Result</p></a
+        >
+      </div>
+    </section>
+
+    <!-- <script src="asset/java script/main.js"></script> -->
+    <script>
+      let userName = document.cookie.split("=")[1];
+      console.log(userName);
+
+      // showing of result
+      let result = 0;
+      let questionNum = sessionStorage.getItem("questionsNum");
+      for (let i = 1; i <= questionNum; i++) {
+        if (sessionStorage.getItem(`result${i}`) == 1) {
+          result++;
+        }
+      }
+
+      // access to elements
+      let A_resCont = document.getElementById("firstResultContainer");
+      let resultDiv = document.getElementById("result");
+      let comment = document.getElementById("comment");
+      let icon = document.getElementById("check_mark");
+      let score = document.getElementById("quiz_score");
+
+      // checking quiz status
+      if (result >= questionNum * 0.5) {
+        let status = document.getElementById("quiz_status");
+        status.innerHTML = `Congratulations,${userName}!`;
+        score.innerHTML = `${result}/${questionNum}`;
+
+        if (result >= questionNum * 0.5 && result < questionNum * 0.7) {
+          comment.innerHTML = "Not bad";
+        } else if (result >= questionNum * 0.7 && result < questionNum * 0.9) {
+          comment.innerHTML = "Very good";
+        } else if (result >= questionNum * 0.9 && result <= questionNum * 1) {
+          comment.innerHTML = "Excellent";
+        }
+      } else {
+        let status = document.getElementById("quiz_status");
+        resultDiv.style.setProperty("--theme-Color", "red");
+        icon.className = "fas fa-times-circle";
+        status.innerHTML = `Oops,${userName}! You Failed`;
+        score.innerHTML = `${result}/${questionNum}`;
+      }
+
+      // showing result in the table
+      function tableResult() {
+        let table = document.getElementById("quiz_table");
+        table.classList.toggle("display");
+        // document.getElementById("footer").style.position = "realtive";
+        let showLink = document.getElementById("show");
+        if (showLink.innerHTML === "Hide Table") {
+          showLink.innerHTML = "Show Table Result";
+        } else {
+          showLink.innerHTML = "Hide Table Result";
+        }
+      }
+      let table1 = document.getElementById("quiz_table");
+      for (let a_i = 0; a_i < questionNum; a_i++) {
+        let a_answer = sessionStorage.getItem(`answers${a_i + 1}`);
+        a_answer = a_answer.split(",");
+        let questions = sessionStorage.getItem(`question${a_i + 1}`);
+        let results = sessionStorage.getItem(`result${a_i + 1}`);
+        let tr = document.createElement("tr");
+        let td1 = document.createElement("td");
+        let td2 = document.createElement("td");
+        let td3 = document.createElement("td");
+        td1.innerHTML = a_i + 1 + ") " + questions;
+        let a_index = sessionStorage.getItem(`q${a_i + 1}`) - 1;
+        td2.innerText = a_answer[a_index];
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        tr.appendChild(td3);
+        table1.appendChild(tr);
+        // console.log(a_answer);
+
+        // adding of true and false icons to quiz status
+        if (results == 1) {
+          td3.innerHTML = '<i class="ion-checkmark"></i>';
+        } else {
+          td3.innerHTML = '<i class="ion-close"></i>';
+        }
+      }
+
+      // logout function
+      function logout() {
+        document.cookie = "username=;expires=Thu, 01 Jan 1970";
+        localStorage.removeItem("logged_in");
+        sessionStorage.clear();
+        window.location.href = "./index.html";
+      }
+    </script>
+  </body>
+</html>

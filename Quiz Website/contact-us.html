@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="asset/images/logo.jpg" />
+    <link rel="stylesheet" href="asset/css/main.css" />
+    <link rel="stylesheet" href="asset/icon files/css/ionicons.min.css" />
+    <link rel="stylesheet" href="asset/responsiveness/main-respo.css" />
+    <title>contact us page</title>
+
+    <style>
+      /* main page */
+      .body_container {
+        display: grid;
+        grid-template-columns: 30% 30%;
+        justify-content: center;
+        grid-column-gap: 0.3rem;
+        margin-top: 4rem;
+      }
+
+      .column {
+        border: 0.1em solid #242222;
+      }
+
+      .address_info h1 {
+        margin: 2.5rem 0 2rem 0;
+      }
+
+      .address_info {
+        width: 30vw;
+        height: 70vh;
+        line-height: 2em;
+        padding: 0 1rem;
+        text-align: center;
+      }
+
+      .address .icon {
+        font-size: 1.3em;
+        margin-right: 1rem;
+      }
+
+      .address_info .address {
+        margin-top: 1em;
+        text-align: left;
+      }
+
+      .address_info .info_paragraph {
+        text-align: justify;
+        margin-top: 2em;
+      }
+
+      .form_container {
+        display: grid;
+        align-content: center;
+        padding: 0 1rem 0 1rem;
+      }
+
+      .form_container h1 {
+        position: relative;
+        bottom: 2rem;
+        text-align: center;
+      }
+
+      form {
+        display: grid;
+        grid-row-gap: 1rem;
+      }
+
+      input,
+      textarea {
+        padding: 0.5rem 2rem 0.5rem 0.2rem;
+        width: 100%;
+        border: none;
+        border-radius: 0.2rem;
+      }
+
+      .comment_area {
+        padding: 0.5rem;
+      }
+      .button_area {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1rem;
+      }
+
+      .send_button,
+      .reset_button {
+        width: 45%;
+        padding: 0.5rem 1rem;
+        background-color: var(--blue);
+        color: var(--white-color);
+        border: 1px solid var(--blue);
+        border-radius: 0.2rem;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+
+      .button_style {
+        color: var(--blue);
+        background-color: var(--white-color);
+        transition: all 1s;
+        transform: scale(1.05);
+      }
+
+      /* responisive code */
+      @media (max-width: 768px) {
+        body {
+          font-size: 0.8rem;
+        }
+
+        .body_container {
+          grid-template-columns: 40% 40%;
+          grid-row-gap: 3rem;
+          grid-column-gap: 0;
+        }
+
+        .address_info {
+          width: 100%;
+        }
+
+        .form_container h1 {
+          bottom: 1rem;
+        }
+      }
+      @media (max-width: 600px) {
+        .body_container {
+          grid-template-columns: 60%;
+          grid-row-gap: 3rem;
+        }
+
+        .image_area {
+          width: 100%;
+          height: 50vh;
+        }
+
+        .form_container {
+          padding: 1rem;
+        }
+
+        .form_container h1 {
+          bottom: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <img src="asset/images/logo.jpg" alt="error on loading logo" />
+      <ul>
+        <li class="menu_btn">
+          <i class="ion-android-menu" id="menu"></i>
+        </li>
+        <li class="nav_link"><a href="index.html" class="link">Home</a></li>
+        <li class="nav_link">
+          <a href="quiz.html" class="link">Quiz</a>
+        </li>
+        <li class="nav_link">
+          <a href="contact-us.html" class="link">Contact Us</a>
+        </li>
+        <li class="nav_link">
+          <a href="about-us.html" class="link">About Us</a>
+        </li>
+      </ul>
+    </nav>
+
+    <section>
+      <div class="body_container">
+        <div class="address_info column">
+          <h1>address & contact Info</h1>
+          <p class="address">
+            <i class="ion-android-call icon"></i>+93704707160, +93744580628
+          </p>
+          <p class="address">
+            <i class="ion-ios-email icon"></i>ahmadzubairnazari682@gmail.com
+          </p>
+          <address class="address">
+            <i class="ion-android-pin icon"></i>3rd block, 7th street, 9th
+            distract, kandahar, afghanistan
+          </address>
+          <p class="info_paragraph">
+            If you have question, just you want to contact with us or get in
+            touch, use the form below. We waith hearing from you.
+          </p>
+        </div>
+
+        <div class="form_container column">
+          <h1>Contact Us</h1>
+          <form action="" onreset="return inputFieldreset()">
+            <input type="text" placeholder="Your Name" class="input_field" />
+            <input type="email" placeholder="User Email" class="input_field" />
+            <fieldset>
+              <legend>Comments</legend>
+              <div class="comment_area">
+                <textarea
+                  name=""
+                  id=""
+                  cols="20"
+                  rows="5"
+                  class="input_field"
+                ></textarea>
+                <div class="button_area">
+                  <button type="submit" class="send_button button">Send</button>
+                  <button type="reset" class="reset_button button">
+                    Reset
+                  </button>
+                </div>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Page Footer -->
+    <footer>
+      <div class="footer_container">
+        <div class="tutorials">
+          <h1>online tutorials</h1>
+          <div class="tutorials_links">
+            <div class="html_links">
+              <h3>HTML5</h3>
+              <ul>
+                <li>
+                  <a
+                    href="https://www.w3schools.com/html/default.asp "
+                    target="_blank"
+                    >HTML Tutorial</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.w3schools.com/html/html_examples.asp"
+                    target="_blank"
+                    >HTML Examples</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.w3schools.com/html/html_quiz.asp"
+                    target="_blank"
+                    >HTML Quizes</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="css_links">
+              <h3>CSS3</h3>
+              <ul>
+                <li>
+                  <a
+                    href="https://www.w3schools.com/css/default.asp"
+                    target="_blank"
+                    >CSS Tutorial</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.w3schools.com/css/css_examples.asp"
+                    target="_blank"
+                    >CSS Examples</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.w3schools.com/css/css_quiz.asp"
+                    target="_blank"
+                    >CSS Quizes</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="js_links">
+              <h3>JS</h3>
+              <ul>
+                <li>
+                  <a
+                    href="https://www.w3schools.com/js/default.asp"
+                    target="_blank"
+                    >JS Tutorial</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.w3schools.com/js/js_examples.asp"
+                    target="_blank"
+                    >JS Examples</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.w3schools.com/js/js_quiz.asp"
+                    target="_blank"
+                    >JS Quizes</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="other_pages_links">
+          <h1>other pages links</h1>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html">Testominal</a></li>
+            <li><a href="contact-us.html">Contact Us</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+          </ul>
+        </div>
+
+        <div class="contacts__links">
+          <h1>follow us</h1>
+          <div class="follow_us">
+            <ul>
+              <li>
+                <a href="#"><i class="ion-social-github" id="github"></i></a>
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="ion-social-linkedin" id="linkedin"></i
+                ></a>
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="ion-social-instagram-outline" id="instagram"></i
+                ></a>
+              </li>
+              <li>
+                <a href="#"><i class="ion-social-twitter" id="twitter"></i></a>
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="ion-social-facebook" id="facebook"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="copyright_others">
+        <p class="copyright_para">
+          Copyright &copy; 2023 All rights reserved | This website is designed
+          by computer science students group, you can use this project for
+          learning and your portifolo.
+        </p>
+      </div>
+    </footer>
+
+    <script src="asset/java script/main.js"></script>
+    <script>
+      "use strict";
+
+      const inputFields = document.querySelectorAll(".input_field");
+      // console.log(inputFields);
+      // adding attributes to input fields
+      inputFields.forEach((input) => {
+       input.setAttribute("autocomplete", "off");
+        input.setAttribute("required", "");
+      });
+
+      const buttons = document.querySelectorAll("button");
+      // console.log(buttons);
+
+      // mouseover and mouseout events
+      buttons.forEach((btn) => {
+        btn.addEventListener("mouseover", function () {
+          btn.classList.add("button_style");
+        });
+      });
+
+      buttons.forEach((btn) => {
+        btn.addEventListener("mouseout", function () {
+          btn.classList.remove("button_style");
+          btn.style.transitionDuration = "1s";
+        });
+      });
+
+      // input fileds reset function
+      function inputFieldreset() {
+        if (confirm("Do you wanto clear input fields!")) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    </script>
+  </body>
+</html>

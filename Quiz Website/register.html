@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="asset/images/logo.jpg" />
+    <link rel="stylesheet" href="asset/icon files/css/ionicons.min.css" />
+    <link rel="stylesheet" href="asset/css/main.css" />
+    <link rel="stylesheet" href="asset/responsiveness/main-respo.css" />
+    <title>register page</title>
+
+    <style>
+      /* main section */
+      .row {
+        display: grid;
+        grid-template-columns: 45% 45%;
+        justify-content: center;
+        margin-top: 2rem;
+      }
+
+      .col-1 {
+        display: grid;
+        width: 70%;
+      }
+
+      .col {
+        display: grid;
+        align-content: center;
+      }
+
+      .col-2 img {
+        /* max-width: 35rem; */
+        height: 25rem;
+        border-top-right-radius: 2rem;
+        border-bottom-left-radius: 2rem;
+      }
+
+      form {
+        width: 30w;
+      }
+
+      form h1 {
+        font-size: 2rem;
+        text-transform: uppercase;
+        text-align: center;
+      }
+
+      form .form_para {
+        margin: 1rem 0;
+        font-size: 1.2rem;
+        text-decoration: underline;
+      }
+
+      .error {
+        color: #ff0000;
+        font-size: 0.8rem;
+      }
+
+      #password1_check,
+      #password2_check {
+        margin-bottom: 1rem;
+        color: var(--blue);
+        font-size: 0.8rem;
+      }
+
+      .input_item {
+        padding: 0.4rem;
+        margin: 0.3rem 0 1.2rem 0;
+        border: none;
+        outline: none;
+        background-color: var(--white-color);
+        border-radius: 0.2rem;
+        color: var(--black-color);
+      }
+
+      #checkbox {
+        accent-color: var(--blue);
+      }
+
+      .button_area {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1rem;
+        position: relative;
+        left: 0;
+      }
+
+      .register_button,
+      .reset_button {
+        width: 45%;
+        padding: 0.7rem;
+        margin: 0.3rem 0 1.2rem 0;
+        border: none;
+        background-color: var(--blue);
+        border-radius: 0.2rem;
+        color: var(--white-color);
+        font-size: 1rem;
+        cursor: pointer;
+      }
+
+      .checkbox_para a {
+        text-decoration: none;
+      }
+
+      .button_style {
+        color: var(--blue);
+        background-color: var(--white-color);
+        border: 1px solid var(--blue);
+        transition: all 1s;
+        transform:scale(1.05);
+      }
+
+      /* reponisve code for laptop */
+      @media (max-width: 992px) {
+        .col-2 img {
+          height: 20rem;
+          margin-left: -4rem;
+        }
+      }
+
+      /* responsive code for ipad */
+      @media (max-width: 768px) {
+        body {
+          font-size: 0.8rem;
+        }
+        .col-2 img {
+          height: 22rem;
+          margin: 0 auto;
+        }
+        .row {
+          display: flex;
+          flex-direction: column-reverse;
+          flex-wrap: wrap;
+          align-content: center;
+        }
+
+        .col-1 {
+          width: 100%;
+        }
+      }
+
+      /* responsive code for mobile */
+      @media (max-width: 600px) {
+        body {
+          font-size: 0.8rem;
+        }
+
+        .col-2 img {
+          height: 18rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <img src="asset/images/logo.jpg" alt="error on loading logo" />
+      <ul>
+        <li class="menu_btn">
+          <i class="ion-android-menu" id="menu"></i>
+        </li>
+        <li class="nav_link"><a href="index.html" class="link">Home</a></li>
+        <li class="nav_link">
+          <a href="quiz.html" class="link">Quiz</a>
+        </li>
+        <li class="nav_link">
+          <a href="contact us.html" class="link">Contact Us</a>
+        </li>
+        <li class="nav_link">
+          <a href="about us.html" class="link">About Us</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- main section with input fields -->
+    <main>
+      <div class="row">
+        <form
+          class="form"
+          id="form"
+          action="index.html"
+          onreset="return inputFieldreset()"
+        >
+          <div class="col col-1">
+            <h1>Register Form</h1>
+            <p class="form_para">Please fill this form for creating account.</p>
+            <label for="firstname">First name:</label>
+            <input
+              type="text"
+              id="firstname"
+              class="input_item"
+              placeholder="Enter First name"
+            />
+
+            <label for="lastname">Last name:</label>
+            <input
+              type="text"
+              id="lastname"
+              class="input_item"
+              placeholder="Enter Last name"
+            />
+
+            <label for="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              class="input_item"
+              placeholder="Enter Email"
+            />
+
+            <label for="password1">Password:</label>
+            <input
+              type="password"
+              id="password1"
+              class="input_item"
+              size="10"
+              placeholder="Enter password"
+              oninput="checkFunction()"
+            />
+            <p id="password1_check" class="error"></p>
+
+            <label for="password2">Repeat password:</label>
+            <input
+              type="password"
+              id="password2"
+              class="input_item"
+              size="10"
+              placeholder="Repeat password"
+              oninput="checkFunction()"
+            />
+            <p id="password2_check" class="error"></p>
+
+            <p class="checkbox_para">
+              <input type="checkbox" class="input_item" id="checkbox" /> By
+              creating account you agree to our <a href="#">Term</a> &
+              <a href="#">Services</a>
+            </p>
+            <div class="button_area">
+              <button type="submit" class="register_button register_btns">
+                Register
+              </button>
+              <button
+                type="reset"
+                class="reset_button register_btns"
+                onreset="reset()"
+              >
+                Reset
+              </button>
+            </div>
+          </div>
+          <!-- </fieldset> -->
+        </form>
+
+        <div class="col col-2">
+          <div class="side_image">
+            <picture>
+              <img src="asset/images/register image2.jpg" alt="" />
+            </picture>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer_container">
+        <div class="tutorials">
+          <h1>online tutorials</h1>
+          <div class="tutorials_links">
+            <div class="html_links">
+              <h3>HTML5</h3>
+              <ul>
+                <li>
+                  <a
+                    href="https://www.w3schools.com/html/default.asp "
+                    target="_blank"
+                    >HTML Tutorial</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.w3schools.com/html/html_examples.asp"
+                    target="_blank"
+                    >HTML Examples</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.w3schools.com/html/html_quiz.asp"
+                    target="_blank"
+                    >HTML Quizes</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="css_links">
+              <h3>CSS3</h3>
+              <ul>
+                <li>
+                  <a
+                    href="https://www.w3schools.com/css/default.asp"
+                    target="_blank"
+                    >CSS Tutorial</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.w3schools.com/css/css_examples.asp"
+                    target="_blank"
+                    >CSS Examples</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.w3schools.com/css/css_quiz.asp"
+                    target="_blank"
+                    >CSS Quizes</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="js_links">
+              <h3>JS</h3>
+              <ul>
+                <li>
+                  <a
+                    href="https://www.w3schools.com/js/default.asp"
+                    target="_blank"
+                    >JS Tutorial</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.w3schools.com/js/js_examples.asp"
+                    target="_blank"
+                    >JS Examples</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.w3schools.com/js/js_quiz.asp"
+                    target="_blank"
+                    >JS Quizes</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="other_pages_links">
+          <h1>other pages links</h1>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html">Testominal</a></li>
+            <li><a href="contact-us.html">Contact Us</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+          </ul>
+        </div>
+
+        <div class="contacts__links">
+          <h1>follow us</h1>
+          <div class="follow_us">
+            <ul>
+              <li>
+                <a href="#"><i class="ion-social-github" id="github"></i></a>
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="ion-social-linkedin" id="linkedin"></i
+                ></a>
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="ion-social-instagram-outline" id="instagram"></i
+                ></a>
+              </li>
+              <li>
+                <a href="#"><i class="ion-social-twitter" id="twitter"></i></a>
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="ion-social-facebook" id="facebook"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="copyright_others">
+        <p class="copyright_para">
+          Copyright &copy; 2023 All rights reserved | This website is designed
+          by computer science students group, you can use this project for
+          learning and your portifolo.
+        </p>
+      </div>
+    </footer>
+
+    <script src="asset/java script/main.js"></script>
+    <script>
+      "use strict";
+      const inputFields = document.querySelectorAll(".input_item");
+      const registerBtns = document.querySelectorAll(".register_btns");
+      // console.log(inputFields);
+
+      // adding outline to input field and adding autocomplete and required attribute
+      inputFields.forEach(function (inputItem) {
+        inputItem.setAttribute("autocomplete", "off");
+        inputItem.setAttribute("required", "");
+      });
+
+      registerBtns.forEach(function (btn) {
+        btn.addEventListener("mouseover", function () {
+          btn.classList.add("button_style");
+        });
+
+        btn.addEventListener("mouseout", function () {
+          btn.classList.remove("button_style");
+        });
+      });
+
+      // reset event
+      function inputFieldreset() {
+        if (confirm("Do You want to reset the input fields!")) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+
+      // acccess to input fields
+      let password1 = document.querySelector("#password1");
+      let password2 = document.querySelector("#password2");
+      let message1 = document.querySelector("#password1_check");
+      let message2 = document.querySelector("#password2_check");
+
+      // password checking function
+      function checkFunction() {
+        if (password1.value.length >= 8) {
+          message1.innerHTML = "Good Password";
+        } else {
+          message1.innerHTML = "Password length is short!";
+        }
+
+        if (password1.value == password2.value) {
+          message2.innerHTML = "Correct Password!";
+        } else if (
+          password1.value != password2.value &&
+          password1.value.length < 8
+        ) {
+          message2.innerHTML = "Doesn't match";
+        }
+      }
+      
+      // creating array for client data to store the data
+      const usersDataArray = [];
+
+      // access to inopt fields
+      let firstName = document.querySelector("#firstname");
+      let lastName = document.querySelector("#lastname");
+      let email = document.querySelector("#email");
+      let password = document.querySelector("#password1");
+      let from = document.querySelector("#from");
+
+      // submit event of form
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        // Form object
+        const userData = {
+          first_Name: firstName.value,
+          last_Name: lastName.value,
+          email: email.value,
+          password: password.value,
+        };
+
+        usersDataArray.push(userData);
+
+        // store user information in local storage.
+        if (!localStorage.getItem("users_accounts")) {
+          localStorage.setItem(
+            "users_accounts",
+            JSON.stringify(usersDataArray)
+          );
+        } else {
+          let getAcconuts = JSON.parse(localStorage.getItem("users_accounts"));
+          getAcconuts.push(userData);
+          localStorage.setItem("users_accounts", JSON.stringify(getAcconuts));
+        }
+
+        // after storing the information setting the form fields empty
+        firstName.value = "";
+        lastName.value = "";
+        email.value = "";
+        password.value = "";
+
+        // back to home page
+        window.location.href = "/index.html";
+      });
+    </script>
+  </body>
+</html>
